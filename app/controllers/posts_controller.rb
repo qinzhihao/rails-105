@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :authenticate_user!
+
   def new
     @group = Group.find(params[:group_id])
     @post = Post.new
@@ -18,6 +20,7 @@ class PostsController < ApplicationController
   end
 
   def edit
+    
   end
 
 
@@ -26,5 +29,5 @@ class PostsController < ApplicationController
       def post_params
         params.require(:post).permit(:content)
       end
-      
+
 end
